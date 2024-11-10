@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+/* -----------------notification Styling-----------------*/
+/*-----------------------STARTED----------------------*/
+
+
+.notifications {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+}
+
+.toast {
+    position: relative;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+    width: 400px;
+    display: grid;
+    grid-template-columns: 70px 1fr 70px;
+    border-radius: 5px;
+    --color: #0abf30;
+    background-image:
+        linear-gradient(to right, #0abf3055, #22242f 30%);
+    animation: show 0.3s ease 1 forwards
+}
+
+.toast i {
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.toast .title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.toast span,
+.toast i:nth-child(3) {
+    color: #fff;
+    opacity: 0.6;
+}
+
+@keyframes show {
+    0% {
+        transform: translateX(100%);
+    }
+
+    40% {
+        transform: translateX(-5%);
+    }
+
+    80% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-10%);
+    }
+}
+
+.toast::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    content: '';
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 5s linear 1 forwards
+}
+
+@keyframes timeOut {
+    to {
+        width: 0;
+    }
+}
+
+.toast.error {
+    --color: #f24d4c;
+    background-image:
+        linear-gradient(to right, #f24d4c55, #22242F 30%);
+}
+
+.toast.warning {
+    --color: #e9bd0c;
+    background-image:
+        linear-gradient(to right, #e9bd0c55, #22242F 30%);
+}
+
+.toast.info {
+    --color: #3498db;
+    background-image:
+        linear-gradient(to right, #3498db55, #22242F 30%);
+}
+
+
+
+/* -----------------notification Styling-----------------*/
+/*-----------------------ENDED----------------------*/
+
+
+
+/* -----------------Login Section-----------------*/
+/*-----------------------STARTED----------------------*/
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(https://user-images.githubusercontent.com/13468728/233847739-219cb494-c265-4554-820a-bd3424c59065.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.login-section-title {
+    font-family: "Borel";
+    font-weight: 600;
+    font-size: 5rem;
+    margin-bottom: 30px;
+}
+
+.glass-pane-title {
+    font-family: 'poppins', sans-serif !important;
+    font-size: 3rem;
+
+}
+
+.glass-pane {
+    position: relative;
+    max-width: 400px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.inputbox {
+    position: relative;
+    margin: 30px 0;
+    max-width: 310px;
+    border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+}
+
+input:focus~label,
+input:valid~label {
+    top: -5px;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0 35px 0 5px;
+    color: #fff;
+}
+
+.inputbox ion-icon {
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2rem;
+    top: 20px;
+}
+
+.forget {
+    margin: 35px 0;
+    font-size: 0.85rem;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+}
+
+.forget label input {
+    margin-right: 3px;
+}
+
+.forget a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forget a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255, 1);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+.register {
+    font-size: 0.9rem;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* -----------------Login Section-----------------*/
+/*-----------------------ENDED----------------------*/
+
+
+
+
+
+/*-----------------------STARTED----------------------*/
+/* -----------------Results section-----------------*/
+
+
+#resultsSection {
+    background: linear-gradient(to right, #5B2E7F, #D16DA1);
+    height: 100vh;
+}
+
+
+
+
+
+/* -----------------Results section-----------------*/
+/*-----------------------ENDED----------------------*/
