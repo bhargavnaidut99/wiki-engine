@@ -25,22 +25,22 @@
                     <h1 class="glass-pane-title">Login</h1>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" id="loginEmail" required>
+                        <input id="loginEmail" required>
                         <label for="loginEmail">Email</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" id="loginPassword" required>
+                        <input id="loginPassword" required>
                         <label for="loginPassword">Password</label>
                     </div>
                     <div class="forget">
                         <label for=""><input type="checkbox">Remember Me</label>
                         <a href="#">Forget Password</a>
                     </div>
-                    <button type="button" id="loginButton">Sign in</button>
+                    <button id="loginButton" onclick="redirectSearchPage()">Sign in</button>
 
                     <div class="register">
-                        <p>Don't have an account? <a onclick="" href="#" id="registerKeyword">Register</a></p>
+                        <p>Don't have an account? <a onclick="redirectRegisterPage()" href="#" id="registerKeyword">Register</a></p>
                     </div>
                 </form>
             </div>
@@ -53,21 +53,21 @@
                     <h1 class="glass-pane-title">Register</h1>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
-                        <label for="">Email</label>
+                        <input id="registerEmail">
+                        <label for="registerEmail">Email</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Password</label>
+                        <input id="registerPassword">
+                        <label for="registerPassword">Password</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Re-enter Password</label>
+                        <input id="registerRepassword">
+                        <label for="registerRepassword">Re-enter Password</label>
                     </div>
 
-                    <button onsubmit="redirectLoginPage()">Sign up</button>
+                    <button onclick="redirectLoginPage()">Sign up</button>
                     <div class="register">
                         <p>Already have an account? <a onclick="redirectLoginPage()" href="#">Login</a></p>
                     </div>
