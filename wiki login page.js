@@ -2,107 +2,57 @@ let loginSectionEl = document.getElementById("loginSection");
 let searchSectionEl = document.getElementById("searchSection");
 let registerSectionEl = document.getElementById("registerSection");
 let resultsSectionEl = document.getElementById("resultsSection");
-let loginButtonEl = document.getElementById("loginButton");
-
-let notificationsEl = document.getElementById('notifications');
 
 
-
-function createToast(type, icon, title, text) {
-    console.log("ok");
-    let newToast = document.createElement('div');
-
-    newToast.innerHTML = `
-
-            <div class="toast ${type}">
-
-                <i class="${icon}"></i>
-
-                <div class="content">
-
-                    <div class="title">${title}</div>
-
-                    <span>${text}</span>
-
-                </div>
-
-                <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-
-            </div>`;
-
-    notificationsEl.appendChild(newToast);
-
-    newToast.timeOut = setTimeout(
-
-        () => newToast.remove(), 5000
-
-    );
-
-}
-
-function successAlert(type, icon, title, text) {
-
-    createToast(type, icon, title, text);
-
-}
-
-function errorAlert(type, icon, title, text) {
-
-    createToast(type, icon, title, text);
-
-}
-
-function redirectSearchPage(event) {
+function redirectSearchPage() {
     event.preventDefault(); // Prevent default form submission
 
-    const emailVal = document.getElementById('loginEmail').value;
+    const loginEmailVal = document.getElementById('loginEmail').value;
 
-    const passwordVal = document.getElementById('loginPassword').value;
+    const loginPasswordVal = document.getElementById('loginPassword').value;
 
 
-    if (emailVal === "") {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Please fill in the email field.');
+    if (loginEmailVal === "") {
+        alert('Please fill in the email field.');
         return;
     }
-    if (!emailVal.includes("@")) {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Please enter a valid email address.');
+    if (!loginEmailVal.includes("@")) {
+        alert('Please enter a valid email address.');
         return;
     }
-    if (passwordVal.length < 8) {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Password must be at least 8 characters long!');
-        return;
-    }
-
-    const hasUpperCase = /[A-Z]/.test(passwordVal);
-    const hasLowerCase = /[a-z]/.test(passwordVal);
-    const hasNumber = /[0-9]/.test(passwordVal);
-    const hasSpecialChar = /[!@#\$%\^&\*]/.test(passwordVal);
-
-    if (!hasUpperCase) {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Password must include at least one uppercase letter.');
-        return;
-    }
-    if (!hasLowerCase) {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Password must include at least one lowercase letter.');
-        return;
-    }
-    if (!hasNumber) {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Password must include at least one number.');
-        return;
-    }
-    if (!hasSpecialChar) {
-        errorAlert('error', 'fa-solid fa-circle-exclamation', 'Error', 'Password must include at least one special character.');
+    if (loginPasswordVal.length < 8) {
+        alert('Password must be at least 8 characters long!');
         return;
     }
 
-    successAlert('success', 'fa-solid fa-circle-check', 'Success', 'You are successfully logged in!');
+    const loginHasUpperCase = /[A-Z]/.test(loginPasswordVal);
+    const loginHasLowerCase = /[a-z]/.test(loginPasswordVal);
+    const loginHasNumber = /[0-9]/.test(loginPasswordVal);
+    const loginHasSpecialChar = /[!@#\$%\^&\*]/.test(loginPasswordVal);
+
+    if (!loginHasUpperCase) {
+        alert('Password must include at least one uppercase letter.');
+        return;
+    }
+    if (!loginHasLowerCase) {
+        alert('Password must include at least one lowercase letter.');
+        return;
+    }
+    if (!loginHasNumber) {
+        alert('Password must include at least one number.');
+        return;
+    }
+    if (!loginHasSpecialChar) {
+        alert('Password must include at least one special character.');
+        return;
+    }
+
+    alert('You are successfully logged in!');
     loginSectionEl.classList.toggle("d-none");
     resultsSectionEl.classList.toggle("d-none");
 }
 
-loginButtonEl.onclick = function() {
-    redirectSearchPage(event);
-};
+
 
 
 function redirectRegisterPage() {
@@ -111,6 +61,56 @@ function redirectRegisterPage() {
 }
 
 function redirectLoginPage() {
+
+    event.preventDefault(); // Prevent default form submission
+
+    const registerEmailVal = document.getElementById('registerEmail').value;
+
+    const registerPasswordVal = document.getElementById('registerPassword').value;
+
+    const registerRePasswordVal = document.getElementById('registerRepassword').value;
+
+    if (registerEmailVal === "") {
+        alert('Please fill in the email field.');
+        return;
+    }
+    if (!registerEmailVal.includes("@")) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    if (registerPasswordVal.length < 8) {
+        alert('Password must be at least 8 characters long!');
+        return;
+    }
+
+    const registerHasUpperCase = /[A-Z]/.test(registerPasswordVal);
+    const registerHasLowerCase = /[a-z]/.test(registerPasswordVal);
+    const registerHasNumber = /[0-9]/.test(registerPasswordVal);
+    const registerHasSpecialChar = /[!@#\$%\^&\*]/.test(registerPasswordVal);
+
+    if (!registerHasUpperCase) {
+        alert('Password must include at least one uppercase letter.');
+        return;
+    }
+    if (!registerHasLowerCase) {
+        alert('Password must include at least one lowercase letter.');
+        return;
+    }
+    if (!registerHasNumber) {
+        alert('Password must include at least one number.');
+        return;
+    }
+    if (!registerHasSpecialChar) {
+        alert('Password must include at least one special character.');
+        return;
+    }
+    if (registerRePasswordVal !== registerPasswordVal) {
+        alert("The passwords you entered do not match. Please ensure both password fields contain the same password and try again.");
+
+    }
+
+    alert("You've successfully registered! You can now log in.");
+
     registerSectionEl.classList.toggle("d-none");
     loginSectionEl.classList.toggle("d-none");
 }
